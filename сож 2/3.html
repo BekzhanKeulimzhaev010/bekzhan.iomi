@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подбор тура</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal {
+            background: #fff;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .modal-header h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .country-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .country-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .country-card span {
+            display: block;
+            padding: 10px;
+            background: #f9f9f9;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body><button id="openModal">Подобрать тур</button>
+
+    <div class="overlay" id="modalOverlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Выберите страну</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="country-grid">
+                <div class="country-card">
+                    <img src="т.jpg" alt="Таиланд">
+                    <span>Таиланд</span>
+                </div>
+                <div class="country-card">
+                    <img src="д.webp" alt="ОАЭ">
+                    <span>ОАЭ</span>
+                </div>
+                <div class="country-card">
+                    <img src="тур.jpeg" alt="Турция">
+                    <span>Турция</span>
+                </div>
+                <div class="country-card">
+                    <img src="г.jpeg" alt="Грузия">
+                    <span>Грузия</span>
+                </div>
+                <div class="country-card">
+                    <img src="274px-Egypt.Giza.Sphinx.02_(cropped).jpg" alt="Египет">
+                    <span>Египет</span>
+                </div>
+                <div class="country-card">
+                    <img src="sit-back-relax-and-enjoy.jpg" alt="Индия">
+                    <span>Индия</span>
+                </div>
+            </div>
+        </div>
+    </div><script>
+        const openModalButton = document.getElementById('openModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const closeModalButton = document.getElementById('closeModal');
+    
+        openModalButton.addEventListener('click', () => {
+            modalOverlay.style.display = 'flex';
+        });
+    
+        closeModalButton.addEventListener('click', () => {
+            modalOverlay.style.display = 'none';
+        });
+    
+        window.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
+    </script>
+    
+    </body>
+    </html>
+    
